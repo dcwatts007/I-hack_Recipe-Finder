@@ -44,7 +44,7 @@ class Foods:
         for food in this.curentfoods:
             finder.append(food.name)
         for recipe in this.recipes:
-            searcher=(recipe["ingredients"])
+            searcher=recipe["ingredients"]
            
             for ingredient in searcher:
                 can_make_recipe=False
