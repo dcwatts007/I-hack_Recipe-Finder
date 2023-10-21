@@ -244,9 +244,13 @@ Bake at 350°F for 12 minutes.'''
         ]
     }
 ]
+<<<<<<< HEAD
 #endregion
 
 print(recipes[0])
+=======
+#endregion 
+>>>>>>> 67594a1f62fcc2e49fd2063127993eeefefe0bb1
 foods=[]
 Pantry=Recipe.Foods(foods,recipes[0]["ingredients"])
 window = Tk()
