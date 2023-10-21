@@ -2,14 +2,14 @@ from plyer import notification
 import datetime
 # The Food class allows the creation of food objects that hold their name as a string and experationDate as a DateTime object
 class Food:
-    def __init__(this,name,experationDate):
+    def __init__(this,name:str,experationDate:datetime):
         this.name=name
         this.experationDate=experationDate
     def __str__(this):
         return f"{this.name}"
 #The Recipe Class holds the recipe's name, ingredients, and directions as a string, array, and string respectively
 class Recipe:
-    def __init__(this,name,ingredients,directions):
+    def __init__(this,name:str,ingredients:[],directions:str):
         this.name=name
         this.ingredients=ingredients
         this.directions=directions
@@ -20,7 +20,7 @@ class Recipe:
 #It also is the basis for searching for recipes that the user can make by using the array of 
 #Food to find recipes
 class Foods:
-    def __init__(this,curentfoods,recipes):
+    def __init__(this,curentfoods:[],recipes:[]):
         this.curentfoods=curentfoods
         this.recipes=recipes
     def __str__(this):
@@ -49,7 +49,7 @@ class Foods:
             for ingredient in searcher:
                 can_make_recipe=False
                 for name in finder:
-                    if(name.tolower() in ingredient.tolower()):
+                    if(name.lower() in ingredient.lower()):
                         can_make_recipe=True
                         break
                 if not can_make_recipe:
@@ -57,22 +57,6 @@ class Foods:
             if can_make_recipe:
                 makeable_recipes.append(recipe)
         return makeable_recipes
-        
-exp1='lollypops'
-food1=Food('milk',exp1)
-food2=Food('sausage',exp1)
-food=[food1,food2]
-ingredients=['milk']
-ingredients2=['wheat','eggs','milk']
-recipe2=Recipe('food',ingredients2,'eat')
-recipe1=Recipe('milk',ingredients,'drink')
-recipe=[recipe2,recipe1]
-foods=Foods(food,recipe)
-bug=foods.find_recipes()
-print(foods.find_recipes())
-
-
-
 #sends notifications about food that will expire soon. 
 class notify:
     def message(this):
