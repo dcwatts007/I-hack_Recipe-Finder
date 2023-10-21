@@ -271,7 +271,9 @@ tb1 = Entry(window, bd=5)
 tb1.place(x=90, y=150)
 tbd1 = Entry(window, bd=5)
 tbd1.place(x=235, y=150)
-
+def get_value(event):
+    tb1_name = tb1.get()
+window.bind('<Return>', get_value)
 
 tb2 = Entry(window, bd=5)
 tb2.place(x=90, y=185)
