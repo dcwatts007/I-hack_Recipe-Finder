@@ -23,6 +23,12 @@ class Foods:
     def __init__(this,curentfoods,recipes):
         this.curentfoods=curentfoods
         this.recipes=recipes
+    def __str__(this):
+        string = ""
+        for food in this.curentfoods:
+            string+=food.__str__
+        return string
+        
     def addFood(this,x):
         {
             this.foods.append(x)
@@ -43,7 +49,7 @@ class Foods:
             for ingredient in searcher:
                 can_make_recipe=False
                 for name in finder:
-                    if(name in ingredient):
+                    if(name.tolower() in ingredient.tolower()):
                         can_make_recipe=True
                         break
                 if not can_make_recipe:

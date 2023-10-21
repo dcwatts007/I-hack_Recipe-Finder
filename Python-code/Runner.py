@@ -1,5 +1,6 @@
 #importing files
 import Recipe
+import datetime
 #our homemade database of recipes. 
 recipes = [
     {
@@ -245,8 +246,9 @@ for ingredient in ingredient_input_list:
     date_format = "%Y-%m-%d %H:%M:%S"
     while(True):
         try:
-            datetime_object = datetime.strptime(date_string, date_format)
+            datetime_object = datetime.striptime(date_string, date_format)
             break
         except ValueError:
             date_string = input('Please write the experation date in the format of YYYY-MM-DD')
     Pantry.addFood(ingredient,datetime_object)
+    print(Pantry)
