@@ -1,18 +1,11 @@
-# Sample recipe database (you can expand this with more recipes and ingredients)
+import csv
 
-# Function to find recipes based on available ingredients
-
-
-# Main program
-if __name__ == "__main__":
-    user_input = input("Enter a list of food items separated by commas: ").split(",")
-    user_ingredients = [item.strip().lower() for item in user_input]
-
-    matching_recipes = find_recipes(user_ingredients)
-
-    if matching_recipes:
-        print("You can make the following recipes:")
-        for recipe in matching_recipes:
-            print(recipe)
-    else:
-        print("Sorry, you don't have enough ingredients for any recipes.")
+fields = []
+rows = []
+with open('openrecipes.csv','r')as csvfile:
+    csvreader = csv.reader(csvfile)
+    fields = next(csvreader)
+    for row in csvreader:
+        rows.append(row)
+    print("Total no. of Rows: %d"%(csvreader.line_num))
+print('Field names are:'+', '.join(field for field in fields))
