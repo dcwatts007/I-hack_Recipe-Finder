@@ -2,6 +2,7 @@ from tkinter import *
 from tkcalendar import Calendar
 from tkinter.ttk import Combobox
 import Recipe
+from tkinter import ttk
 #importing files
 import Recipe
 import datetime
@@ -250,34 +251,44 @@ Pantry=Recipe.Foods(foods,recipes)
 window = Tk()
 
 # text labels
-label1 = Label(window, text="Welcome to the bodacious bohemoths app", fg='black', font=("Helvetica", 20, "bold"))
-label1.place(x=90, y=10)
+label1 = Label(window, text="Welcome to the bodacious bohemoths app", fg='black', font=("Helvetica", 30, "bold"))
+label1.place(x=90, y=20)
 
-label2 = Label(window, text="Please input your ingredients:", fg='black', font=("Helvetica", 16))
-label2.place(x=90, y=50)
+label2 = Label(window, text="Please input your ingredients:", fg='black', font=("Helvetica", 24))
+label2.place(x=270, y=90)
 
-label3 = Label(window, text="(Check the checkbox when finished)", fg='black', font=("Helvetica", 12))
-label3.place(x=90, y=80)
+# label3 = Label(window, text="(Select display option when finished)", fg='black', font=("Helvetica", 15))
+# label3.place(x=310, y=130)
 
-label4 = Label(window, text="INGREDIENT", fg='black', font=("Helvetica", 12))
-label4.place(x=105, y=125)
+label4 = Label(window, text="INGREDIENTS", fg='black', font=("Helvetica", 12))
+label4.place(x=407, y=185)
 
-label5 = Label(window, text="EXP DATE", fg='black', font=("Helvetica", 12))
-label5.place(x=260, y=125)
+label4 = Label(window, text="(input one at a time, press 'enter' after each input)", fg='black', font=("Helvetica", 8))
+label4.place(x=340, y=242)
 
-label6 = Label(window, text="INGREDIENT", fg='black', font=("Helvetica", 12))
-label6.place(x=446, y=125)
 
-label6 = Label(window, text="EXP DATE", fg='black', font=("Helvetica", 12))
-label6.place(x=600, y=125)
+# data = ("one", "two", "three", "four")
+# cblabel= Label(window, text="Please select display option:", fg='black', font=("Helvetica", 20))
+# cb = Combobox(window, values=data, state="readonly", height= 5 ,font="Verdana 16")
+def newtab_recipes():
+    root = Tk()
+    root.title("Tab Widget")
+    tabControl = ttk.Notebook(root)
+    tab1= ttk.Frame(tabControl)
+    tabControl.add(tab1, text = "Recipes")
+    tabControl.pack(expand = 1, fill = "both")
+    
+
+btn = Button(window, text = "Go to recipes", command = newtab_recipes)
+btn.place(x=310, y=300)
+# cb.place(x=342, y=350)
+
 
 
 
 
 tb1 = Entry(window, bd=5)
-tb1.place(x=90, y=150)
-tbd1 = Entry(window, bd=5)
-tbd1.place(x=235, y=150)
+tb1.place(x=395, y=210)
 def get_value(event):
     tb1_name = tb1.get()
     # Add Calendar
@@ -290,7 +301,6 @@ def get_value(event):
     def grad_date():
         food=str(Recipe.Food(tb1_name,cal.get_date()))
         Pantry.addFood(food)
-        print(f"{str(Pantry)}")
     # Add Button and Label
     btn = Button(root, text = "Get Date", command= grad_date).pack(pady = 20)
     btn = Button(root, text = "Add another Ingredient", command= root.destroy).pack(pady = 20)
@@ -298,48 +308,10 @@ def get_value(event):
 window.bind('<Return>',get_value)
 
 
-# check mark
-data = ("one", "two", "three", "four")
-v1 = IntVar()
-def check_checkbox():
-    if v1.get() == 1:
-        cblabel.place(x=760, y=200)
-        cb.place(x=790, y=260)
-    elif v1.get() == 0:
-        cblabel.place(x=-400, y=-200)
-        cb.place(x=-200, y=-200)
-cblabel= Label(window, text="Please select display option:", fg='black', font=("Helvetica", 20))
-cb = Combobox(window, values=data, state="readonly", height= 5 ,font="Verdana 16")
-C1 = Checkbutton(window, text="Check here when finished", onvalue= 1, offvalue= 0, 
-                 variable= v1, command= check_checkbox)
-C1.place(x=800, y=500)
 
 
 
 
-
-# tb1.delete(0, END)
-# tb1 = Entry(window, bd=5)
-# tb1.place(x=90, y=150)
-# tbd1 = Entry(window, bd=5)
-# tbd1.place(x=235, y=150)
-# def get_value(event):
-#     tb1_name = tb1.get()
-#     # Add Calendar
-#     root = Tk()
-#     root.geometry("400x400")
-#     cal = Calendar(root, selectmode = 'day',
-#         year = 2023, month = 10, day = 22)
-#     cal.pack(pady = 20)
-
-#     def grad_date():
-#         food=str(Recipe.Food(tb1_name,cal.get_date()))
-#         Pantry.addFood(food)
-#         print(f"{str(Pantry)}")
-#     # Add Button and Label
-#     btn = Button(root, text = "Get Date", command=grad_date).pack(pady = 20)
-# window.bind('<Return>',get_value)
-    
 
 
 
@@ -347,6 +319,6 @@ C1.place(x=800, y=500)
 
 # window frame and title
 window.title("Hello there!")
-window.geometry("1200x600+150+50")
+window.geometry("1000x600+190+80")
 window.mainloop()
     
