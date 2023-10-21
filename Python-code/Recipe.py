@@ -26,7 +26,7 @@ class Foods:
     def __str__(this):
         string = ""
         for food in this.curentfoods:
-            string+=food.__str__
+            string+=str(food)
         return string
         
     def addFood(this,x):

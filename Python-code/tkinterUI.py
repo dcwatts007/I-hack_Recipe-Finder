@@ -5,7 +5,9 @@ import Recipe
 #importing files
 import Recipe
 import datetime
-#our homemade database of recipes. 
+import time
+
+#region - our homemade database of recipes. 
 recipes = [
     {
         'name': 'Cookies',
@@ -242,6 +244,8 @@ Bake at 350°F for 12 minutes.'''
         ]
     }
 ]
+#endregion
+time=1
 foods=[]
 Pantry=Recipe.Foods(foods,recipes)
 window = Tk()
@@ -268,7 +272,9 @@ label6.place(x=446, y=125)
 label6 = Label(window, text="EXP DATE", fg='black', font=("Helvetica", 12))
 label6.place(x=600, y=125)
 
-# text box entry
+
+
+
 tb1 = Entry(window, bd=5)
 tb1.place(x=90, y=150)
 tbd1 = Entry(window, bd=5)
@@ -280,19 +286,19 @@ def get_value(event):
     root.geometry("400x400")
     cal = Calendar(root, selectmode = 'day',
         year = 2023, month = 10, day = 22)
- 
     cal.pack(pady = 20)
- 
+
     def grad_date():
-        cal.get_date()
- 
+        food=str(Recipe.Food(tb1_name,cal.get_date()))
+        Pantry.addFood(food)
+        print(f"{str(Pantry)}")
     # Add Button and Label
-    Button(Tk(), text = "Get Date",command = grad_date).pack(pady = 20)
-    date=window.bind('<Return>', get_value)
-    food=Recipe.Food(tb1_name,date)
-    Pantry.addFood(food)
-    print(Pantry.__str__)
+    btn = Button(root, text = "Get Date", command= grad_date).pack(pady = 20)
+    btn = Button(root, text = "Add another Ingredient", command= root.destroy).pack(pady = 20)
+    tb1.delete(0, END)
 window.bind('<Return>',get_value)
+
+
 # check mark
 data = ("one", "two", "three", "four")
 v1 = IntVar()
@@ -312,8 +318,36 @@ C1.place(x=800, y=500)
 
 
 
+
+# tb1.delete(0, END)
+# tb1 = Entry(window, bd=5)
+# tb1.place(x=90, y=150)
+# tbd1 = Entry(window, bd=5)
+# tbd1.place(x=235, y=150)
+# def get_value(event):
+#     tb1_name = tb1.get()
+#     # Add Calendar
+#     root = Tk()
+#     root.geometry("400x400")
+#     cal = Calendar(root, selectmode = 'day',
+#         year = 2023, month = 10, day = 22)
+#     cal.pack(pady = 20)
+
+#     def grad_date():
+#         food=str(Recipe.Food(tb1_name,cal.get_date()))
+#         Pantry.addFood(food)
+#         print(f"{str(Pantry)}")
+#     # Add Button and Label
+#     btn = Button(root, text = "Get Date", command=grad_date).pack(pady = 20)
+# window.bind('<Return>',get_value)
+    
+
+
+
+
+
 # window frame and title
 window.title("Hello there!")
 window.geometry("1200x600+150+50")
-window.mainloop():
+window.mainloop()
     
