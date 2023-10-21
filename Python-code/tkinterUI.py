@@ -302,7 +302,7 @@ def get_value(event):
     cal.pack(pady = 20)
 
     def grad_date():
-        food=str(Recipe.Food(tb1_name,cal.get_date()))
+        food=Recipe.Food(tb1_name,cal.get_date())
         Pantry.addFood(food)
     # Add Button and Label
     btn = Button(root, text = "Get Date", command= grad_date).pack(pady = 20)
