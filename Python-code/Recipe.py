@@ -58,11 +58,11 @@ class Foods:
                 makeable_recipes.append(recipe)
         return makeable_recipes
 #sends notifications about food that will expire soon. 
-class notify:
-    def message(this):
+    def notify(this):
         expiring=[]
-        for x in this.Food:
-            if x.experationDate.timestamp-604800<datetime.date.today().timestamp():
+        food:Food
+        for i in range(this.curentfoods.__len__):
+            if this.curentfoods[i].experationDate.timestamp()-604800<datetime.date.today().timestamp():
                 expiring.append(x)
         if expiring.__len__!=0:
             message=''
