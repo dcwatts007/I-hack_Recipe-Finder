@@ -1,0 +1,14 @@
+C:\code\I-hack_Recipe-Finder\bin\Debug\net7.0\I-hack_Recipe-Finder.exe
+C:\code\I-hack_Recipe-Finder\bin\Debug\net7.0\I-hack_Recipe-Finder.deps.json
+C:\code\I-hack_Recipe-Finder\bin\Debug\net7.0\I-hack_Recipe-Finder.runtimeconfig.json
+C:\code\I-hack_Recipe-Finder\bin\Debug\net7.0\I-hack_Recipe-Finder.dll
+C:\code\I-hack_Recipe-Finder\bin\Debug\net7.0\I-hack_Recipe-Finder.pdb
+C:\code\I-hack_Recipe-Finder\obj\Debug\net7.0\I-hack_Recipe-Finder.GeneratedMSBuildEditorConfig.editorconfig
+C:\code\I-hack_Recipe-Finder\obj\Debug\net7.0\I-hack_Recipe-Finder.AssemblyInfoInputs.cache
+C:\code\I-hack_Recipe-Finder\obj\Debug\net7.0\I-hack_Recipe-Finder.AssemblyInfo.cs
+C:\code\I-hack_Recipe-Finder\obj\Debug\net7.0\I-hack_Recipe-Finder.csproj.CoreCompileInputs.cache
+C:\code\I-hack_Recipe-Finder\obj\Debug\net7.0\I-hack_Recipe-Finder.dll
+C:\code\I-hack_Recipe-Finder\obj\Debug\net7.0\refint\I-hack_Recipe-Finder.dll
+C:\code\I-hack_Recipe-Finder\obj\Debug\net7.0\I-hack_Recipe-Finder.pdb
+C:\code\I-hack_Recipe-Finder\obj\Debug\net7.0\I-hack_Recipe-Finder.genruntimeconfig.cache
+C:\code\I-hack_Recipe-Finder\obj\Debug\net7.0\ref\I-hack_Recipe-Finder.dll
