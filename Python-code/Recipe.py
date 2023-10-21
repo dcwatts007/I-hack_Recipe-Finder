@@ -39,12 +39,14 @@ class Foods:
             finder.append(food.name)
         for recipe in this.recipes:
             searcher=(recipe.ingredients)
-            can_make_recipe=True
+           
             for ingredient in searcher:
-                try:
-                    finder.index(ingredient)
-                except ValueError:
-                    can_make_recipe=False
+                can_make_recipe=False
+                for name in finder:
+                    if(name in ingredient):
+                        can_make_recipe=True
+                        break
+                if not can_make_recipe:
                     break
             if can_make_recipe:
                 makeable_recipes.append(recipe)
