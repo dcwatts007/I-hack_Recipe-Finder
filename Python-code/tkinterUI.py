@@ -246,19 +246,17 @@ Bake at 350°F for 12 minutes.'''
 ]
 #endregion
 
+print(recipes[0])
 foods=[]
-Pantry=Recipe.Foods(foods,recipes)
+Pantry=Recipe.Foods(foods,recipes[0]["ingredients"])
 window = Tk()
-
+print(Pantry.recipes)
 # text labels
 label1 = Label(window, text="Welcome to the bodacious bohemoths app", fg='black', font=("Helvetica", 30, "bold"))
 label1.place(x=90, y=20)
 
 label2 = Label(window, text="Please input your ingredients:", fg='black', font=("Helvetica", 24))
 label2.place(x=270, y=90)
-
-# label3 = Label(window, text="(Select display option when finished)", fg='black', font=("Helvetica", 15))
-# label3.place(x=310, y=130)
 
 label4 = Label(window, text="INGREDIENTS", fg='black', font=("Helvetica", 12))
 label4.place(x=407, y=185)
@@ -277,7 +275,12 @@ def newtab_recipes():
     tab1= ttk.Frame(tabControl)
     tabControl.add(tab1, text = "Recipes")
     tabControl.pack(expand = 1, fill = "both")
-    
+    recipe=[]
+    recipe=Pantry.find_recipes()
+    string=""
+    for holder in recipe:
+        string+=holder.__str__()+"\n"
+    ttk.Label(tab1, text=string).geometry()
 
 btn = Button(window, text = "Go to recipes", command = newtab_recipes)
 btn.place(x=310, y=300)
@@ -304,7 +307,6 @@ def get_value(event):
     # Add Button and Label
     btn = Button(root, text = "Get Date", command= grad_date).pack(pady = 20)
     btn = Button(root, text = "Add another Ingredient", command= root.destroy).pack(pady = 20)
-    tb1.delete(0, END)
 window.bind('<Return>',get_value)
 
 
