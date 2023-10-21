@@ -5,7 +5,6 @@ import Recipe
 #importing files
 import Recipe
 import datetime
-import time
 
 #region - our homemade database of recipes. 
 recipes = [
@@ -245,7 +244,7 @@ Bake at 350°F for 12 minutes.'''
     }
 ]
 #endregion
-time=1
+
 foods=[]
 Pantry=Recipe.Foods(foods,recipes)
 window = Tk()
