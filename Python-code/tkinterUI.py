@@ -294,16 +294,17 @@ tb1.place(x=395, y=210)
 def get_value(event):
     tb1_name = tb1.get()
     # Add Calendar
-    cal = Calendar(window, selectmode = 'day',)
+    root = Tk()
+    root.geometry("400x400")
+    cal = Calendar(root, selectmode = 'day',)
     cal.pack(pady = 20)
 
     def grad_date():
         food=Recipe.Food(tb1_name,cal.get_date())
         Pantry.addFood(food)
-        cal.destroy
     # Add Button and Label
-    btn = Button(window, text = "Get Date", command= grad_date).pack(pady = 20)
-    btn = Button(window, text = "Add another Ingredient", command= cal.destroy)
+    btn = Button(root, text = "Get Date", command= grad_date).pack(pady = 20)
+    btn = Button(root, text = "Add another Ingredient", command= root.destroy).pack(pady = 20)
 window.bind('<Return>',get_value)
 
 
