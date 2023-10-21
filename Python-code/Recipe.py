@@ -31,10 +31,10 @@ class Foods:
         
     def addFood(this,x):
         {
-            this.foods.append(x)
+            this.curentfoods.append(x)
         }
     def removeFood(this,x):
-        this.foods.remove(x)
+        this.curentfoods.remove(x)
     def addRecipe(this,x):
         this.recipes.append(x)
     #Finds the Recipes that the user can make with the food they have.

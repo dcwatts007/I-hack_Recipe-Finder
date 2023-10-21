@@ -1,4 +1,5 @@
 from tkinter import *
+from tkcalendar import Calendar
 from tkinter.ttk import Combobox
 import Recipe
 #importing files
@@ -241,7 +242,8 @@ Bake at 350°F for 12 minutes.'''
         ]
     }
 ]
-Pantry=Recipe.Foods([],recipes)
+foods=[]
+Pantry=Recipe.Foods(foods,recipes)
 window = Tk()
 
 # text labels
@@ -273,103 +275,24 @@ tbd1 = Entry(window, bd=5)
 tbd1.place(x=235, y=150)
 def get_value(event):
     tb1_name = tb1.get()
-window.bind('<Return>', get_value)
-
-tb2 = Entry(window, bd=5)
-tb2.place(x=90, y=185)
-tbd2 = Entry(window, bd=5)
-tbd2.place(x=235, y=185)
-
-tb3 = Entry(window, bd=5)
-tb3.place(x=90, y=220)
-tbd3 = Entry(window, bd=5)
-tbd3.place(x=235, y=220)
-
-tb4 = Entry(window, bd=5)
-tb4.place(x=90, y=255)
-tbd4 = Entry(window, bd=5)
-tbd4.place(x=235, y=255)
-
-tb5 = Entry(window, bd=5)
-tb5.place(x=90, y=290)
-tbd5 = Entry(window, bd=5)
-tbd5.place(x=235, y=290)
-
-tb6 = Entry(window, bd=5)
-tb6.place(x=90, y=325)
-tbd6 = Entry(window, bd=5)
-tbd6.place(x=235, y=325)
-
-tb7 = Entry(window, bd=5)
-tb7.place(x=90, y=360)
-tbd7 = Entry(window, bd=5)
-tbd7.place(x=235, y=360)
-
-tb8 = Entry(window, bd=5)
-tb8.place(x=90, y=395)
-tbd8 = Entry(window, bd=5)
-tbd8.place(x=235, y=395)
-
-tb9 = Entry(window, bd=5)
-tb9.place(x=90, y=430)
-tbd9 = Entry(window, bd=5)
-tbd9.place(x=235, y=430)
-
-tb10 = Entry(window, bd=5)
-tb10.place(x=90, y=465)
-tbd10 = Entry(window, bd=5)
-tbd10.place(x=235, y=465)
-
-tb11 = Entry(window, bd=5)
-tb11.place(x=430, y=150)
-tbd11 = Entry(window, bd=5)
-tbd11.place(x=575, y=150)
-
-tb12 = Entry(window, bd=5)
-tb12.place(x=430, y=185)
-tbd12 = Entry(window, bd=5)
-tbd12.place(x=575, y=185)
-
-tb13 = Entry(window, bd=5)
-tb13.place(x=430, y=220)
-tbd13 = Entry(window, bd=5)
-tbd13.place(x=575, y=220)
-
-tb14 = Entry(window, bd=5)
-tb14.place(x=430, y=255)
-tbd14 = Entry(window, bd=5)
-tbd14.place(x=575, y=255)
-
-tb15 = Entry(window, bd=5)
-tb15.place(x=430, y=290)
-tbd15 = Entry(window, bd=5)
-tbd15.place(x=575, y=290)
-
-tb16 = Entry(window, bd=5)
-tb16.place(x=430, y=325)
-tbd16 = Entry(window, bd=5)
-tbd16.place(x=575, y=325)
-
-tb17 = Entry(window, bd=5)
-tb17.place(x=430, y=360)
-tbd17 = Entry(window, bd=5)
-tbd17.place(x=575, y=360)
-
-tb18 = Entry(window, bd=5)
-tb18.place(x=430, y=395)
-tbd18 = Entry(window, bd=5)
-tbd18.place(x=575, y=395)
-
-tb19 = Entry(window, bd=5)
-tb19.place(x=430, y=430)
-tbd19 = Entry(window, bd=5)
-tbd19.place(x=575, y=430)
-
-tb20 = Entry(window, bd=5)
-tb20.place(x=430, y=465)
-tbd20 = Entry(window, bd=5)
-tbd20.place(x=575, y=465)
-
+    # Add Calendar
+    root = Tk()
+    root.geometry("400x400")
+    cal = Calendar(root, selectmode = 'day',
+        year = 2023, month = 10, day = 22)
+ 
+    cal.pack(pady = 20)
+ 
+    def grad_date():
+        cal.get_date()
+ 
+    # Add Button and Label
+    Button(Tk(), text = "Get Date",command = grad_date).pack(pady = 20)
+    date=window.bind('<Return>', get_value)
+    food=Recipe.Food(tb1_name,date)
+    Pantry.addFood(food)
+    print(Pantry.__str__)
+window.bind('<Return>',get_value)
 # check mark
 data = ("one", "two", "three", "four")
 v1 = IntVar()
@@ -392,4 +315,5 @@ C1.place(x=800, y=500)
 # window frame and title
 window.title("Hello there!")
 window.geometry("1200x600+150+50")
-window.mainloop()
+window.mainloop():
+    
