@@ -13,6 +13,8 @@ class Foods:
     def __inti__(this,food):
         this.food=food
 
+if __name__ == '__main__': assert False, 'This is a class file.'
+
     
         
         
