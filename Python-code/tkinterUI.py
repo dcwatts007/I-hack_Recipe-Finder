@@ -304,7 +304,6 @@ def get_value(event):
         Pantry.addFood(food)
     # Add Button and Label
     btn = Button(root, text = "Get Date", command= grad_date).pack(pady = 20)
-    btn = Button(root, text = "Add another Ingredient", command= root.destroy).pack(pady = 20)
 window.bind('<Return>',get_value)
 
 
